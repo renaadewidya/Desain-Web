@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>.rena - Portfolio</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 30px;
+            background-color: #ffffff;
+            color: #000000;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            display: flex;
+            flex-direction: column;
+            gap: 25px;
+        }
+
+        .card {
+            border: 2px solid #000000;
+            padding: 30px;
+            border-radius: 8px;
+        }
+
+        .nav-bar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 15px;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: #000000;
+            font-weight: bold;
+        }
+
+        .hero-content {
+            display: flex;
+            justify-content: space-between;
+            gap: 20px;
+        }
+
+        .hero-text {
+            flex: 1;
+        }
+
+        .hero-profile {
+            border: 1px dashed #000000;
+            padding: 20px;
+            text-align: center;
+            min-width: 200px;
+        }
+
+        .projects-grid {
+            display: flex;
+            gap: 15px;
+            margin-top: 15px;
+        }
+
+        .project-box {
+            border: 1px solid #000000;
+            padding: 15px;
+            flex: 1;
+            border-radius: 6px;
+        }
+
+        .btn-group {
+            margin-top: 20px;
+            display: flex;
+            gap: 10px;
+        }
+
+        .btn {
+            border: 1px solid #000000;
+            padding: 8px 16px;
+            text-decoration: none;
+            color: #000000;
+            border-radius: 4px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="container">
+
+        <div class="card header-card">
+            <div class="nav-bar">
+                <div class="logo"><strong>.rena</strong></div>
+                <div class="nav-links">
+                    <a href="#skill">Skill</a>
+                    <a href="#project">Project</a>
+                    <a href="#contact">Contact</a>
+                </div>
+            </div>
+
+            <div class="hero-content">
+                <div class="hero-text">
+                    <h1>Hello I'm,<br>Rena Creative</h1>
+                    <p>Mahasiswa Teknik Multimedia Digital yang tertarik dengan desain, visual, teknologi, dan segala
+                        hal yang berhubungan dengan dunia kreatif digital.</p>
+                    <div class="btn-group">
+                        <a href="#project" class="btn">View My Work</a>
+                        <a href="#contact" class="btn">Contact Me</a>
+                    </div>
+                </div>
+                <div class="hero-profile">
+                    <div class="profile-name"><strong>Rena Ade Widya</strong></div>
+                    <div class="profile-title">Digital Multimedia Student</div>
+                    <div class="badge-status">Currently learning & creating</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="card" id="skill">
+            <div class="section-title"><strong>01 — ABOUT ME</strong></div>
+            <br>
+            <div class="about-subtitle"><em>A little bit about me.</em></div>
+            <p>Halo!</p>
+            <p>Aku Rena Ade Widya. Aku merupakan mahasiswa Teknik Multimedia Digital yang memiliki ketertarikan terhadap
+                dunia desain dan teknologi kreatif.</p>
+            <p>Sebelum melanjutkan pendidikan di perguruan tinggi, aku menempuh pendidikan di SMK dengan jurusan
+                Multimedia. Dari sana aku mulai mengenal desain grafis, editing, video, animasi, dan berbagai bidang
+                multimedia lainnya.</p>
+            <p>Sekarang aku terus mengembangkan kemampuan di bidang desain, UI/UX, multimedia, serta pengembangan proyek
+                digital.</p>
+
+            <br>
+            <p><strong>SMK Multimedia</strong><br>Dasar desain grafis, video editing, multimedia, dan produksi konten
+                digital.</p>
+            <br>
+            <p><strong>CURRENT: Teknik Multimedia Digital</strong><br>Mendalami teknologi multimedia, UI/UX,
+                pemrograman, desain, animasi, dan pengembangan produk digital.</p>
+        </div>
+
+        <div class="card" id="project">
+            <div class="section-title"><strong>02 — PROJECT</strong></div>
+            <h2>Selected works.</h2>
+            <div class="projects-grid">
+                <div class="project-box">
+                    <h3>Graphic Design</h3>
+                    <p><em>Visual identity, poster, social media, layout, dan desain grafis.</em></p>
+                </div>
+                <div class="project-box">
+                    <h3>UI/UX</h3>
+                    <p><em>Membuat interface dan pengalaman pengguna yang sederhana dan mudah digunakan.</em></p>
+                </div>
+                <div class="project-box">
+                    <h3>Video Editing</h3>
+                    <p><em>Editing video, motion graphic, dan pembuatan konten digital.</em></p>
+                </div>
+            </div>
+        </div>
+
+        <div class="card contact-card" id="contact">
+            <h2>Let's create something cool.</h2>
+            <p><em>Feel free to reach out and say hello.</em></p>
+            <br>
+            <a href="mailto:renaaa.dee@gmail.com" class="email-link"><strong>renaaa.dee@gmail.com</strong></a>
+        </div>
+
+    </div>
+
+</body>
+
+</html>

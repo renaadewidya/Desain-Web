@@ -1,0 +1,813 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Rena — Digital Multimedia Student</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap"
+        rel="stylesheet">
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: "DM Sans", sans-serif;
+            background: #0b0b0f;
+            color: #f5f5f5;
+            overflow-x: hidden;
+        }
+
+        body::before {
+            content: "";
+            position: fixed;
+            width: 500px;
+            height: 500px;
+            background: #6c63ff;
+            filter: blur(180px);
+            opacity: 0.15;
+            top: -150px;
+            right: -150px;
+            z-index: -1;
+        }
+
+        body::after {
+            content: "";
+            position: fixed;
+            width: 400px;
+            height: 400px;
+            background: #ff4ecd;
+            filter: blur(180px);
+            opacity: 0.10;
+            bottom: -150px;
+            left: -100px;
+            z-index: -1;
+        }
+
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            padding: 22px 8%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            z-index: 100;
+            background: rgba(11, 11, 15, 0.75);
+            backdrop-filter: blur(15px);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+        }
+
+        .logo {
+            font-family: "Space Grotesk", sans-serif;
+            font-size: 25px;
+            font-weight: 700;
+        }
+
+        .logo span {
+            color: #8b7cff;
+        }
+
+        nav ul {
+            display: flex;
+            gap: 35px;
+            list-style: none;
+        }
+
+        nav a {
+            color: #aaa;
+            text-decoration: none;
+            font-size: 14px;
+            transition: 0.3s;
+        }
+
+        nav a:hover {
+            color: white;
+        }
+
+        .hero {
+            min-height: 100vh;
+            padding: 160px 8% 80px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 70px;
+        }
+
+        .hero-text {
+            max-width: 680px;
+        }
+
+        .hello {
+            display: inline-block;
+            color: #aaa;
+            margin-bottom: 20px;
+            font-size: 15px;
+        }
+
+        .hero h1 {
+            font-family: "Space Grotesk", sans-serif;
+            font-size: clamp(55px, 8vw, 105px);
+            line-height: 0.95;
+            letter-spacing: -5px;
+            margin-bottom: 30px;
+        }
+
+        .hero h1 span {
+            background: linear-gradient(90deg, #8b7cff, #ff5edc);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .hero p {
+            color: #aaa;
+            font-size: 18px;
+            line-height: 1.8;
+            max-width: 570px;
+        }
+
+        .hero-buttons {
+            margin-top: 35px;
+            display: flex;
+            gap: 15px;
+        }
+
+        .btn {
+            padding: 14px 24px;
+            border-radius: 100px;
+            text-decoration: none;
+            font-size: 14px;
+            font-weight: 600;
+            transition: 0.3s;
+        }
+
+        .btn-primary {
+            background: white;
+            color: #0b0b0f;
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-3px);
+        }
+
+        .btn-outline {
+            border: 1px solid #333;
+            color: white;
+        }
+
+        .btn-outline:hover {
+            background: #1b1b22;
+        }
+
+        .profile-card {
+            width: 320px;
+            min-width: 320px;
+            height: 390px;
+            border: 1px solid #292930;
+            border-radius: 30px;
+            background: linear-gradient(145deg, #17171e, #0f0f14);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .profile-circle {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #8b7cff, #ff5edc);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-family: "Space Grotesk";
+            font-size: 60px;
+            font-weight: 700;
+            color: white;
+            box-shadow: 0 0 70px rgba(139, 124, 255, 0.25);
+        }
+
+        .profile-card h3 {
+            margin-top: 25px;
+            font-family: "Space Grotesk";
+            font-size: 24px;
+        }
+
+        .profile-card p {
+            color: #888;
+            margin-top: 7px;
+            font-size: 14px;
+        }
+
+        .status {
+            margin-top: 25px;
+            border: 1px solid #292930;
+            border-radius: 100px;
+            padding: 8px 15px;
+            color: #aaa;
+            font-size: 12px;
+        }
+
+        .status::before {
+            content: "●";
+            color: #71e291;
+            margin-right: 7px;
+        }
+        section {
+            padding: 110px 8%;
+        }
+
+        .section-label {
+            color: #8b7cff;
+            font-size: 13px;
+            font-weight: 700;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            margin-bottom: 15px;
+        }
+
+        .section-title {
+            font-family: "Space Grotesk";
+            font-size: clamp(35px, 5vw, 60px);
+            margin-bottom: 55px;
+            letter-spacing: -2px;
+        }
+
+        .about {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 70px;
+            align-items: center;
+        }
+
+        .about-text p {
+            color: #999;
+            line-height: 1.9;
+            margin-bottom: 20px;
+            font-size: 16px;
+        }
+
+        .timeline {
+            border-left: 1px solid #333;
+            padding-left: 30px;
+        }
+
+        .timeline-item {
+            position: relative;
+            margin-bottom: 40px;
+        }
+
+        .timeline-item::before {
+            content: "";
+            position: absolute;
+            left: -36px;
+            top: 5px;
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            background: #8b7cff;
+            box-shadow: 0 0 15px #8b7cff;
+        }
+
+        .timeline-year {
+            color: #8b7cff;
+            font-size: 13px;
+            font-weight: 700;
+            margin-bottom: 8px;
+        }
+
+        .timeline-item h3 {
+            font-family: "Space Grotesk";
+            font-size: 21px;
+            margin-bottom: 6px;
+        }
+
+        .timeline-item p {
+            color: #888;
+            font-size: 14px;
+        }
+
+        .skills {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 15px;
+        }
+
+        .skill {
+            padding: 28px;
+            border: 1px solid #25252d;
+            border-radius: 20px;
+            background: #111116;
+            transition: 0.3s;
+        }
+
+        .skill:hover {
+            transform: translateY(-6px);
+            border-color: #5148a5;
+            background: #16161d;
+        }
+
+        .skill-icon {
+            font-size: 30px;
+            margin-bottom: 18px;
+        }
+
+        .skill h3 {
+            font-size: 16px;
+            margin-bottom: 7px;
+        }
+
+        .skill p {
+            color: #777;
+            font-size: 13px;
+            line-height: 1.6;
+        }
+
+        .projects {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+        }
+
+        .project {
+            border: 1px solid #27272e;
+            border-radius: 25px;
+            overflow: hidden;
+            background: #111116;
+            transition: 0.3s;
+        }
+
+        .project:hover {
+            transform: translateY(-7px);
+        }
+
+        .project-image {
+            height: 210px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-family: "Space Grotesk";
+            font-size: 50px;
+            font-weight: 700;
+            background: linear-gradient(135deg, #191727, #29203a);
+        }
+
+        .project:nth-child(2) .project-image {
+            background: linear-gradient(135deg, #182329, #20383b);
+        }
+
+        .project:nth-child(3) .project-image {
+            background: linear-gradient(135deg, #291b27, #3a2035);
+        }
+
+        .project-info {
+            padding: 25px;
+        }
+
+        .project-info h3 {
+            font-family: "Space Grotesk";
+            font-size: 21px;
+            margin-bottom: 10px;
+        }
+
+        .project-info p {
+            color: #777;
+            line-height: 1.6;
+            font-size: 14px;
+        }
+
+        .tags {
+            margin-top: 18px;
+            display: flex;
+            gap: 7px;
+            flex-wrap: wrap;
+        }
+
+        .tag {
+            padding: 6px 10px;
+            background: #1e1e25;
+            border-radius: 8px;
+            color: #aaa;
+            font-size: 11px;
+        }
+
+        .contact {
+            text-align: center;
+            padding-bottom: 130px;
+        }
+
+        .contact h2 {
+            font-family: "Space Grotesk";
+            font-size: clamp(40px, 6vw, 75px);
+            letter-spacing: -3px;
+            margin-bottom: 20px;
+        }
+
+        .contact p {
+            color: #888;
+            margin-bottom: 30px;
+        }
+
+        .email {
+            display: inline-block;
+            color: white;
+            font-size: 18px;
+            border-bottom: 1px solid #555;
+            padding-bottom: 8px;
+        }
+
+        footer {
+            border-top: 1px solid #222;
+            padding: 30px 8%;
+            display: flex;
+            justify-content: space-between;
+            color: #666;
+            font-size: 13px;
+        }
+
+        @media (max-width: 900px) {
+            .hero {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+
+            .profile-card {
+                width: 100%;
+            }
+
+            .about {
+                grid-template-columns: 1fr;
+            }
+
+            .skills {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .projects {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (max-width: 600px) {
+            nav ul {
+                display: none;
+            }
+
+            .hero {
+                padding-top: 130px;
+            }
+
+            .hero h1 {
+                letter-spacing: -3px;
+            }
+
+            .skills {
+                grid-template-columns: 1fr;
+            }
+
+            section {
+                padding: 80px 6%;
+            }
+
+            footer {
+                flex-direction: column;
+                gap: 10px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <nav>
+        <div class="logo">rena<span>.</span></div>
+
+        <ul>
+            <li><a href="#about">About</a></li>
+            <li><a href="#skills">Skills</a></li>
+            <li><a href="#projects">Projects</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+    </nav>
+
+    <section class="hero">
+
+        <div class="hero-text">
+
+            <span class="hello">HELLO, I'M</span>
+
+            <h1>
+                Rena<br>
+                <span>Creative.</span>
+            </h1>
+
+            <p>
+                Mahasiswa Teknik Multimedia Digital yang tertarik
+                dengan desain, visual, teknologi, dan segala hal
+                yang berhubungan dengan dunia kreatif digital.
+            </p>
+
+            <div class="hero-buttons">
+                <a href="#projects" class="btn btn-primary">
+                    View My Work
+                </a>
+
+                <a href="#contact" class="btn btn-outline">
+                    Contact Me
+                </a>
+            </div>
+
+        </div>
+
+
+        <div class="profile-card">
+
+            <div class="profile-circle">
+                R
+            </div>
+
+            <h3>Rena Ade Widya</h3>
+
+            <p>Digital Multimedia Student</p>
+
+            <div class="status">
+                Currently learning & creating
+            </div>
+
+        </div>
+
+    </section>
+
+    <section id="about">
+
+        <div class="section-label">
+            01 — ABOUT ME
+        </div>
+
+        <h2 class="section-title">
+            A little bit about me.
+        </h2>
+
+        <div class="about">
+
+            <div class="about-text">
+
+                <p>
+                    Halo! Aku <strong>Rena Ade Widya</strong>.
+                    Aku merupakan mahasiswa
+                    <strong>Teknik Multimedia Digital</strong>
+                    yang memiliki ketertarikan terhadap dunia
+                    desain dan teknologi kreatif.
+                </p>
+
+                <p>
+                    Sebelum melanjutkan pendidikan di perguruan tinggi,
+                    aku menempuh pendidikan di SMK dengan jurusan
+                    <strong>Multimedia</strong>. Dari sana aku mulai
+                    mengenal desain grafis, editing, video,
+                    animasi, dan berbagai bidang multimedia lainnya.
+                </p>
+
+                <p>
+                    Sekarang aku terus mengembangkan kemampuan
+                    di bidang desain, UI/UX, multimedia, serta
+                    pengembangan proyek digital.
+                </p>
+
+            </div>
+
+
+            <div class="timeline">
+
+                <div class="timeline-item">
+
+                    <div class="timeline-year">
+                        SMK
+                    </div>
+
+                    <h3>Multimedia</h3>
+
+                    <p>
+                        Belajar dasar desain grafis, video editing,
+                        multimedia, dan produksi konten digital.
+                    </p>
+
+                </div>
+
+
+                <div class="timeline-item">
+
+                    <div class="timeline-year">
+                        CURRENT
+                    </div>
+
+                    <h3>Teknik Multimedia Digital</h3>
+
+                    <p>
+                        Mendalami teknologi multimedia, UI/UX,
+                        pemrograman, desain, animasi, dan pengembangan
+                        produk digital.
+                    </p>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+    <section id="skills">
+
+        <div class="section-label">
+            02 — SKILLS
+        </div>
+
+        <h2 class="section-title">
+            Things I like to create.
+        </h2>
+
+        <div class="skills">
+
+            <div class="skill">
+                <div class="skill-icon">✦</div>
+                <h3>Graphic Design</h3>
+                <p>
+                    Visual identity, poster, social media,
+                    layout, dan desain grafis.
+                </p>
+            </div>
+
+            <div class="skill">
+                <div class="skill-icon">◈</div>
+                <h3>UI / UX</h3>
+                <p>
+                    Membuat interface dan pengalaman pengguna
+                    yang sederhana dan mudah digunakan.
+                </p>
+            </div>
+
+            <div class="skill">
+                <div class="skill-icon">▶</div>
+                <h3>Video Editing</h3>
+                <p>
+                    Editing video, motion graphic,
+                    dan pembuatan konten digital.
+                </p>
+            </div>
+
+            <div class="skill">
+                <div class="skill-icon">⌘</div>
+                <h3>Multimedia</h3>
+                <p>
+                    Menggabungkan desain, audio, video,
+                    animasi, dan teknologi digital.
+                </p>
+            </div>
+
+        </div>
+
+    </section>
+
+    <section id="projects">
+
+        <div class="section-label">
+            03 — PROJECTS
+        </div>
+
+        <h2 class="section-title">
+            Selected works.
+        </h2>
+
+        <div class="projects">
+
+            <div class="project">
+
+                <div class="project-image">
+                    UI/UX
+                </div>
+
+                <div class="project-info">
+
+                    <h3>UI/UX Design</h3>
+
+                    <p>
+                        Eksplorasi desain interface dan user experience
+                        untuk aplikasi digital.
+                    </p>
+
+                    <div class="tags">
+                        <span class="tag">Figma</span>
+                        <span class="tag">UI Design</span>
+                        <span class="tag">UX</span>
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <div class="project">
+
+                <div class="project-image">
+                    MOTION
+                </div>
+
+                <div class="project-info">
+
+                    <h3>Motion Graphic</h3>
+
+                    <p>
+                        Eksperimen visual menggunakan animasi,
+                        typography, dan motion graphic.
+                    </p>
+
+                    <div class="tags">
+                        <span class="tag">After Effects</span>
+                        <span class="tag">Motion</span>
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <div class="project">
+
+                <div class="project-image">
+                    BRAND
+                </div>
+
+                <div class="project-info">
+
+                    <h3>Graphic Design</h3>
+
+                    <p>
+                        Proyek branding dan visual communication
+                        untuk kebutuhan digital.
+                    </p>
+
+                    <div class="tags">
+                        <span class="tag">Photoshop</span>
+                        <span class="tag">Illustrator</span>
+                        <span class="tag">Branding</span>
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+    <section id="contact" class="contact">
+
+        <div class="section-label">
+            04 — CONTACT
+        </div>
+
+        <h2>
+            Let's create<br>
+            something cool.
+        </h2>
+
+        <p>
+            Feel free to reach out and say hello.
+        </p>
+
+        <a class="email" href="mailto:your-email@example.com">
+            renaaade@example.com
+        </a>
+
+    </section>
+
+
+    <!-- FOOTER -->
+    <footer>
+
+        <span>
+            © 2026 Rena Ade Widya
+        </span>
+
+        <span>
+            Teknik Multimedia Digital
+        </span>
+
+    </footer>
+
+</body>
+
+</html>

@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+    <title>Formulir Registrasi Pengguna</title>
+</head>
+
+<body>
+    <form action="proses_pendaftaran.php" method="POST">
+        <fieldset>
+            <legend>Formulir Registrasi</legend>
+            <p>
+                <label for="nama">Nama Lengkap:</label><br />
+                <input type="text" id="nama" name="nama" placeholder="Masukkan nama lengkap..." />
+            </p>
+            <p>
+                <label for="password">Kata Sandi:</label><br />
+                <input type="password" id="password" name="password" placeholder="Masukkan kata sandi..." />
+            </p>
+            <p>
+                <label>Jenis Kelamin:</label><br />
+                <input type="radio" id="jk_l" name="jenis_kelamin" value="L" />
+                <label for="jk_l">Laki-laki</label>
+                <input type="radio" id="jk_p" name="jenis_kelamin" value="P" />
+                <label for="jk_p">Perempuan</label>
+            </p>
+            <p>
+                <label for="agama">Agama:</label><br />
+                <select id="agama" name="agama">
+                    <option value="islam">Islam</option>
+                    <option value="kristen">Kristen</option>
+                    <option value="hindu">Hindu</option>
+                    <option value="buddha">Buddha</option>
+                </select>
+            </p>
+            <p>
+                <input type="checkbox" id="setuju" name="persetujuan" value="1" />
+                <label for="setuju">Saya menyetujui syarat dan ketentuan yang berlaku</label>
+            </p>
+            <p>
+                <label for="biografi">Biografi Singkat:</label><br />
+                <textarea id="biografi" name="biografi" rows="4" cols="50"></textarea>
+            </p>
+            <p>
+                <input type="submit" name="submit" value="Daftar" />
+            </p>
+        </fieldset>
+    </form>
+</body>
+
+</html>

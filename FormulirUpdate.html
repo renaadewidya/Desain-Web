@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formulir Registrasi Pengguna</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        body {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: #333;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            padding: 20px;
+        }
+
+        form {
+            background: #ffffff;
+            width: 100%;
+            max-width: 500px;
+            border-radius: 12px;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+            overflow: hidden;
+        }
+
+        fieldset {
+            border: none;
+            padding: 30px;
+        }
+
+        legend {
+            font-size: 24px;
+            font-weight: 600;
+            color: #4a5568;
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 2px solid #edf2f7;
+            width: 100%;
+        }
+
+        p {
+            margin-bottom: 18px;
+        }
+
+        label {
+            display: inline-block;
+            font-size: 14px;
+            font-weight: 500;
+            color: #4a5568;
+            margin-bottom: 6px;
+        }
+
+        input[type="text"],
+        input[type="password"],
+        select,
+        textarea {
+            width: 100%;
+            padding: 10px 14px;
+            border: 1px solid #cbd5e0;
+            border-radius: 8px;
+            font-size: 14px;
+            color: #2d3748;
+            transition: all 0.3s ease;
+            outline: none;
+        }
+
+        input[type="text"]:focus,
+        input[type="password"]:focus,
+        select:focus,
+        textarea:focus {
+            border-color: #667eea;
+            box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.15);
+        }
+
+        .radio-group {
+            display: flex;
+            gap: 20px;
+            align-items: center;
+            margin-top: 5px;
+        }
+
+        .radio-group label,
+        .checkbox-container label {
+            font-weight: normal;
+            cursor: pointer;
+            margin-bottom: 0;
+        }
+
+        input[type="radio"],
+        input[type="checkbox"] {
+            accent-color: #667eea;
+            cursor: pointer;
+            transform: scale(1.1);
+            margin-right: 5px;
+        }
+
+        .checkbox-container {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        textarea {
+            resize: vertical;
+        }
+
+        input[type="submit"] {
+            width: 100%;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            border: none;
+            padding: 12px;
+            font-size: 16px;
+            font-weight: 600;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: opacity 0.3s ease, transform 0.1s ease;
+            margin-top: 10px;
+        }
+
+        input[type="submit"]:hover {
+            opacity: 0.9;
+        }
+
+        input[type="submit"]:active {
+            transform: scale(0.98);
+        }
+    </style>
+</head>
+
+<body>
+    <form action="proses_pendaftaran.php" method="POST">
+        <fieldset>
+            <legend>Formulir Registrasi</legend>
+
+            <p>
+                <label for="nama">Nama Lengkap:</label>
+                <input type="text" id="nama" name="nama" placeholder="Masukkan nama lengkap..." required />
+            </p>
+
+            <p>
+                <label for="password">Kata Sandi:</label>
+                <input type="password" id="password" name="password" placeholder="Masukkan kata sandi..." required />
+            </p>
+
+            <p>
+                <label>Jenis Kelamin:</label>
+            <div class="radio-group">
+                <div>
+                    <input type="radio" id="jk_l" name="jenis_kelamin" value="L" />
+                    <label for="jk_l">Laki-laki</label>
+                </div>
+                <div>
+                    <input type="radio" id="jk_p" name="jenis_kelamin" value="P" />
+                    <label for="jk_p">Perempuan</label>
+                </div>
+            </div>
+            </p>
+
+            <p>
+                <label for="agama">Agama:</label>
+                <select id="agama" name="agama">
+                    <option value="" disabled selected>Pilih agama...</option>
+                    <option value="islam">Islam</option>
+                    <option value="kristen">Kristen</option>
+                    <option value="hindu">Hindu</option>
+                    <option value="buddha">Buddha</option>
+                </select>
+            </p>
+
+            <p class="checkbox-container">
+                <input type="checkbox" id="setuju" name="persetujuan" value="1" required />
+                <label for="setuju">Saya menyetujui syarat dan ketentuan yang berlaku</label>
+            </p>
+
+            <p>
+                <label for="biografi">Biografi Singkat:</label>
+                <textarea id="biografi" name="biografi" rows="4"
+                    placeholder="Ceritakan sedikit tentang Anda..."></textarea>
+            </p>
+
+            <p>
+                <input type="submit" name="submit" value="Daftar Sekarang" />
+            </p>
+        </fieldset>
+    </form>
+</body>
+
+</html>

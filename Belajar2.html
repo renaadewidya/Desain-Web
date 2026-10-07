@@ -1,0 +1,491 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Profil Ayessa</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background: #fff0f6;
+            color: #4a1930;
+        }
+
+        /* NAVBAR */
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            padding: 18px 8%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: rgba(255, 255, 255, 0.9);
+            backdrop-filter: blur(10px);
+            z-index: 1000;
+            box-shadow: 0 2px 15px rgba(214, 51, 132, 0.1);
+        }
+
+        .logo {
+            font-size: 24px;
+            font-weight: bold;
+            color: #d63384;
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 30px;
+        }
+
+        nav ul li a {
+            text-decoration: none;
+            color: #6b2145;
+            font-weight: bold;
+            transition: 0.3s;
+        }
+
+        nav ul li a:hover {
+            color: #d63384;
+        }
+
+        /* HERO */
+        .hero {
+            min-height: 100vh;
+            padding: 140px 8% 80px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 50px;
+            background: linear-gradient(135deg,
+                    #fff0f6,
+                    #ffd6e7,
+                    #ffc2dc);
+        }
+
+        .hero-text {
+            max-width: 650px;
+        }
+
+        .hello {
+            color: #d63384;
+            font-size: 20px;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+
+        .hero h1 {
+            font-size: 65px;
+            color: #9d174d;
+            margin-bottom: 15px;
+        }
+
+        .hero h2 {
+            font-size: 28px;
+            color: #d63384;
+            margin-bottom: 20px;
+        }
+
+        .hero p {
+            font-size: 18px;
+            line-height: 1.8;
+            color: #633047;
+        }
+
+        .button {
+            display: inline-block;
+            margin-top: 30px;
+            padding: 14px 28px;
+            background: #d63384;
+            color: white;
+            text-decoration: none;
+            border-radius: 30px;
+            font-weight: bold;
+            transition: 0.3s;
+            box-shadow: 0 8px 20px rgba(214, 51, 132, 0.25);
+        }
+
+        .button:hover {
+            background: #b5256b;
+            transform: translateY(-3px);
+        }
+
+        /* PROFILE CARD */
+        .profile-card {
+            width: 320px;
+            min-width: 280px;
+            padding: 40px 30px;
+            background: white;
+            border-radius: 30px;
+            text-align: center;
+            box-shadow: 0 15px 40px rgba(157, 23, 77, 0.15);
+            animation: floating 3s ease-in-out infinite;
+        }
+
+        .profile-circle {
+            width: 150px;
+            height: 150px;
+            margin: auto;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #ff8fbd, #d63384);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: white;
+            font-size: 55px;
+            font-weight: bold;
+        }
+
+        .profile-card h3 {
+            margin-top: 25px;
+            font-size: 25px;
+            color: #9d174d;
+        }
+
+        .profile-card p {
+            margin-top: 8px;
+            color: #8a4968;
+        }
+
+        @keyframes floating {
+
+            0%,
+            100% {
+                transform: translateY(0);
+            }
+
+            50% {
+                transform: translateY(-12px);
+            }
+        }
+
+        /* ABOUT */
+        section {
+            padding: 100px 8%;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 38px;
+            color: #9d174d;
+            margin-bottom: 50px;
+        }
+
+        .about {
+            background: white;
+        }
+
+        .about-content {
+            max-width: 900px;
+            margin: auto;
+            text-align: center;
+        }
+
+        .about-content p {
+            font-size: 18px;
+            line-height: 1.9;
+            color: #633047;
+        }
+
+        /* EDUCATION */
+        .education {
+            background: #fff0f6;
+        }
+
+        .cards {
+            display: flex;
+            justify-content: center;
+            gap: 25px;
+            flex-wrap: wrap;
+        }
+
+        .card {
+            background: white;
+            width: 300px;
+            padding: 30px;
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(214, 51, 132, 0.1);
+            transition: 0.3s;
+            border-top: 5px solid #d63384;
+        }
+
+        .card:hover {
+            transform: translateY(-8px);
+        }
+
+        .card h3 {
+            color: #d63384;
+            margin-bottom: 15px;
+        }
+
+        .card p {
+            color: #6b4055;
+            line-height: 1.7;
+        }
+
+        /* SKILLS */
+        .skills {
+            background: #ffe4ef;
+        }
+
+        .skill-list {
+            max-width: 800px;
+            margin: auto;
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 15px;
+        }
+
+        .skill {
+            padding: 12px 22px;
+            border-radius: 30px;
+            background: white;
+            color: #c0266d;
+            font-weight: bold;
+            box-shadow: 0 5px 15px rgba(214, 51, 132, 0.1);
+        }
+
+        /* CONTACT */
+        .contact {
+            text-align: center;
+            background: white;
+        }
+
+        .contact p {
+            font-size: 18px;
+            margin-bottom: 25px;
+            color: #633047;
+        }
+
+        /* FOOTER */
+        footer {
+            padding: 25px;
+            text-align: center;
+            background: #9d174d;
+            color: white;
+        }
+
+        /* RESPONSIVE */
+        @media (max-width: 768px) {
+            nav {
+                padding: 15px 5%;
+            }
+
+            nav ul {
+                gap: 12px;
+                font-size: 13px;
+            }
+
+            .hero {
+                flex-direction: column;
+                text-align: center;
+                padding-top: 130px;
+            }
+
+            .hero h1 {
+                font-size: 45px;
+            }
+
+            .hero h2 {
+                font-size: 23px;
+            }
+
+            .profile-card {
+                width: 280px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- NAVBAR -->
+    <nav>
+        <div class="logo">Ayessa.</div>
+
+        <ul>
+            <li><a href="#home">Home</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="#education">Education</a></li>
+            <li><a href="#skills">Skills</a></li>
+        </ul>
+    </nav>
+
+
+    <!-- HOME -->
+    <section class="hero" id="home">
+
+        <div class="hero-text">
+
+            <div class="hello">
+                Hello, I'm
+            </div>
+
+            <h1>Ayessa</h1>
+
+            <h2>Teknik Multimedia Digital</h2>
+
+            <p>
+                Seorang mahasiswa Teknik Multimedia Digital yang
+                memiliki ketertarikan pada dunia desain, multimedia,
+                teknologi, dan kreativitas digital.
+            </p>
+
+            <a href="#about" class="button">
+                Kenalan Yuk ✨
+            </a>
+
+        </div>
+
+
+        <div class="profile-card">
+
+            <div class="profile-circle">
+                A
+            </div>
+
+            <h3>Ayessa</h3>
+
+            <p>Digital Multimedia Student</p>
+            <p>Creative • Design • Technology</p>
+
+        </div>
+
+    </section>
+
+
+    <!-- ABOUT -->
+    <section class="about" id="about">
+
+        <h2 class="section-title">
+            About Me
+        </h2>
+
+        <div class="about-content">
+
+            <p>
+                Halo! Aku Ayessa. Aku merupakan mahasiswa
+                <b>Teknik Multimedia Digital</b> yang tertarik
+                dengan dunia kreatif dan teknologi digital.
+                Sebelum melanjutkan pendidikan di perguruan tinggi,
+                aku menempuh pendidikan di <b>SMK dengan jurusan Multimedia</b>.
+            </p>
+
+            <br>
+
+            <p>
+                Dari pengalaman tersebut, aku mulai mengenal
+                berbagai bidang seperti desain grafis, editing,
+                multimedia, dan pembuatan konten digital.
+                Sekarang aku ingin terus mengembangkan kemampuan
+                dan menghasilkan karya-karya kreatif.
+            </p>
+
+        </div>
+
+    </section>
+
+
+    <!-- EDUCATION -->
+    <section class="education" id="education">
+
+        <h2 class="section-title">
+            My Education
+        </h2>
+
+        <div class="cards">
+
+            <div class="card">
+                <h3>SMK</h3>
+
+                <p>
+                    Menempuh pendidikan di SMK dengan
+                    jurusan <b>Multimedia</b>.
+                </p>
+
+                <p>
+                    Mempelajari dasar-dasar desain,
+                    multimedia, editing, dan produksi
+                    konten digital.
+                </p>
+            </div>
+
+
+            <div class="card">
+                <h3>College</h3>
+
+                <p>
+                    Saat ini melanjutkan pendidikan
+                    di bidang <b>Teknik Multimedia Digital</b>.
+                </p>
+
+                <p>
+                    Fokus pada pengembangan teknologi
+                    multimedia dan kreativitas digital.
+                </p>
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- SKILLS -->
+    <section class="skills" id="skills">
+
+        <h2 class="section-title">
+            My Skills
+        </h2>
+
+        <div class="skill-list">
+
+            <div class="skill">Graphic Design</div>
+            <div class="skill">Digital Illustration</div>
+            <div class="skill">Video Editing</div>
+            <div class="skill">Multimedia</div>
+            <div class="skill">UI/UX Design</div>
+            <div class="skill">Creative Content</div>
+            <div class="skill">Photography</div>
+            <div class="skill">Animation</div>
+
+        </div>
+
+    </section>
+
+
+    <!-- CONTACT -->
+    <section class="contact">
+
+        <h2 class="section-title">
+            Let's Connect
+        </h2>
+
+        <p>
+            Tertarik untuk berkenalan atau bekerja sama?
+        </p>
+
+        <a href="mailto:ayessa@email.com" class="button">
+            Contact Me 💗
+        </a>
+
+    </section>
+
+
+    <!-- FOOTER -->
+    <footer>
+        <p>© 2026 Ayessa. Made with 💗</p>
+    </footer>
+
+</body>
+
+</html>
